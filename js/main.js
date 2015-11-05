@@ -8,5 +8,5 @@
         $maxYearEl.removeArr('disabled');
         alert('asdasd');
     });
-    
+
 })(jQuery, _);
