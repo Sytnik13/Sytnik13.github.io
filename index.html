@@ -5,15 +5,19 @@
     <title>Car DB</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
+<div id="loader">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+</div>
 <div class="container">
-    <form class="row">
+    <form class="row" id="makeSearchForm">
         <div class="form-group col-xs-12">
             <label for="" class="control-label">
                 Years Min
             </label>
-            <select id="minYear" class="form-control">
+            <select id="minYear" value="" class="form-control" name="min_year">
                 <option value="0" selected>Select Min Year</option>
             </select>
         </div>
@@ -21,11 +25,38 @@
             <label for="" class="control-label">
                 Years Max
             </label>
-            <select id="maxYear" class="form-control" disabled>
+            <select id="maxYear" value="" class="form-control" name="max_year" disabled>
                 <option value="0">Select Max Year</option>
             </select>
         </div>
+        <div class="form-group col-xs-12">
+            <div class="checkbox">
+                <label for="soldInUsa">
+                    <input type="checkbox" id="soldInUsa" name="sold_in_usa"> Sold in USA
+                </label>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-car"></i> Find models
+            </button>
+        </div>
     </form>
+
+    <div class="table-responsive" id="makesTable">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Make</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody id="makesList">
+
+            </tbody>
+        </table>
+    </div>
+
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
